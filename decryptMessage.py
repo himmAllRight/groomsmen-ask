@@ -12,7 +12,7 @@ last edited: January 2015
 """
 
 import sys
-from PyQt5.QtWidgets import (QWidget, QProgressBar,QPushButton, QApplication, QLabel)
+from PyQt5.QtWidgets import (QWidget, QProgressBar,QPushButton, QApplication, QLabel, QMessageBox)
 from PyQt5.QtCore import QBasicTimer
 
 
@@ -25,7 +25,6 @@ class Example(QWidget):
         
         
     def initUI(self):      
-
         self.pbar = QProgressBar(self)
         self.pbar.setGeometry(30, 40, 400, 25)
 
@@ -41,13 +40,16 @@ class Example(QWidget):
 
         self.lbl2 = QLabel('                                                                           ', self)
         self.lbl2.move(100, 2)
+
+        self.loaded = False
+        
         self.show()
-        
-        
+
     def timerEvent(self, e):
         if self.step >= 100:
             self.timer.stop()
             self.btn.setText('Finished')
+            self.loaded = True
             return
 
         if self.step == 20:
@@ -58,7 +60,7 @@ class Example(QWidget):
 
         if self.step == 70:
             self.lbl2.setText("  ;)   :)")
-            
+
         self.step = self.step + 1
         self.pbar.setValue(self.step)
         
@@ -68,6 +70,9 @@ class Example(QWidget):
         if self.timer.isActive():
             self.timer.stop()
             self.btn.setText('Start')
+        elif self.loaded:
+            self.btn.setText('Cool.')
+            QMessageBox.information(self,"Success!", "testingtestingtestingtestingtestingtest\ningtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingt\nestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtesti\nngtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingte\nstingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtesti\nngtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtesting!")
         else:
             self.timer.start(100, self)
             self.btn.setText('Stop')
