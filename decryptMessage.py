@@ -1,5 +1,5 @@
+#!/usr/bin/python3
 import sys
-import rycrypt
 
 from PyQt5.QtWidgets import (QWidget, QProgressBar,QPushButton, QApplication, QLabel, QMessageBox)
 from PyQt5.QtCore import QBasicTimer
