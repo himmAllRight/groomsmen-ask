@@ -8,12 +8,12 @@
   (secret-message))
 
 (defun intro-message ()
-  (format t "~a~%~%~%" (decode-message '(72 101 108 108 111 33 126 37 80 108 101 
-					 97 115 101 32 119 97 105 116 32 97 32 109 
-					 105 110 117 116 101 32 119 104 105 108 101 
-					 32 121 111 117 114 32 115 101 99 114 101 
-					 116 32 109 101 115 115 97 103 101 32 105 115 
-					 32 100 101 99 114 121 112 116 101 100 33)))
+  (format t "~a~%~%~%" (decode-message '(72 101 108 108 111 33 80 108 101 97 115 
+					 101 32 119 97 105 116 32 97 32 109 105 110 
+					 117 116 101 32 119 104 105 108 101 32 121 
+					 111 117 114 32 115 101 99 114 101 116 32 
+					 109 101 115 115 97 103 101 32 105 115 32 
+					 100 101 99 114 121 112 116 101 100 33)))
   (sleep 2)
   (format t "Starting decryption...~%")
   (sleep 1))
@@ -42,7 +42,7 @@
 		   (setf decrypted-messages (cdr decrypted-messages)))
 		  (t
 		   (format t "Decrpyting Message. ~d% Complete.~%" i)))
-	    (sleep 2))))
+	    (sleep 1))))
 
 (defun secret-message ()
   (format t "~%~% ~a" "This is where I will write the secret message!!!"))
