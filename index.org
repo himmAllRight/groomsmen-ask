@@ -5,13 +5,13 @@
 * Welcome
 I am glad you found this page successfully! You have been directed
 here so that I can give you a message and ask a question. Now, you
-might be thinking that this webpage is the last leg of the scavenger
+might be thinking that this web-page is the last leg of the scavenger
 hunt. If you think that, you're wrong. I was made to think of a
 /special/ and /unique/ way to do this, so I ran with it.
 
 Your message is not on this web page, but rather contained in a small
 bit of computer code I wrote and compiled for you to [[downloads][download]] (so
-/technically/ it /is/ on this web page, embeded in the [[sourcecode][source code at
+/technically/ it /is/ on this web page, embedded in the [[sourcecode][source code at
 the bottom of the page]]).  
 
 So, please follow the [[instructions][instructions]] below to continue.  
@@ -27,17 +27,17 @@ So, please follow the [[instructions][instructions]] below to continue.
 ** [[file:./mac_logo_icon.png]] Mac
 *** Download the [[./message-mac.zip][OSX (64-bit)]] package.
 *** Unzip the package
-**** I think on macs you can just doubble click it and it will unzip the package
+**** I think on macs you can just double click it and it will unzip the package
 *** Give the executable (message _mac) permissions to run
 **** Mac can be a pain in the ass sometimes. I am not an apple-authorized developer, so your computer might complain when you go to run the executable. Just confirm that it is okay when it downloads.
-**** Unfortunatley, It probably won't let you execute the code simply by double clicking the executable. So, you will have to give it permission to execute.
-**** I only know how to do this from the command line. So to simplity, I'm going to assume you've move the executable to your Desktop in the commands. 
+**** Unfortunately, It probably won't let you execute the code simply by double clicking the executable. So, you will have to give it permission to execute.
+**** I only know how to do this from the command line. So to simplify, I'm going to assume you've move the executable to your Desktop in the commands. 
 **** Once you have moved the executable to the desktop, open the Terminal and enter the following command:
      #+BEGIN_SRC bash
      chmod +x message_mac 
      #+END_SRC
 *** Run the executable
-**** After the file has executable permissions, you might be able to run it by doubble clicking it, but you might as well execute it from your already open terminal with the following command:
+**** After the file has executable permissions, you might be able to run it by double clicking it, but you might as well execute it from your already open terminal with the following command:
      #+BEGIN_SRC bash 
      ./message_mac 
      #+END_SRC
@@ -47,7 +47,7 @@ So, please follow the [[instructions][instructions]] below to continue.
 *** Download the [[./message-linux.tar.bz][Linux (64-bit)]] package.
 *** Un-tar the package
 **** Open a terminal and locate the downloaded package.
-**** *I am going to assume you understand the basics of linux files paths and how to move around in the terminal.
+**** *I am going to assume you understand the basics of Linux files paths and how to move around in the terminal.
 **** untar the package with the following command:
     #+BEGIN_SRC bash 
     tar -jvxf message-linux.tar.bz 
@@ -62,7 +62,7 @@ So, please follow the [[instructions][instructions]] below to continue.
     #+END_SRC
 ** [[file:./source_logo_icon.png]] Build from Source
 *** You probably know what the fuck you are doing.
-**** *Note I used [[http://www.sbcl.org/][Steel Bank Common Lisp]] to compile the executables (/sbcl/ in most repos).
+**** *Note I used [[http://www.sbcl.org/][Steel Bank Common Lisp]] to compile the executable (/sbcl/ in most repos).
 *** I also like you.
 
 
@@ -76,7 +76,7 @@ So, please follow the [[instructions][instructions]] below to continue.
 <<sourcecode>>
 * Source Code 
 Here is the source code in case you are curious or want to validate
-that I'm not doing anything malicious ;). Nothin' Fancy, but it works
+that I'm not doing anything malicious ;). Nothing Fancy, but it works
 :) .
 
 #+BEGIN_SRC common-lisp
