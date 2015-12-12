@@ -1,0 +1,232 @@
+#+TITLE: Welcome Friends!
+#+AUTHOR: Ryan Himmelwright
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/message-style.css" />
+#+OPTIONS: H:2 num:0
+* Welcome
+I am glad you found this page successfully! You have been directed
+here so that I can give you a message and ask a question. Now, you
+might be thinking that this webpage is the last leg of the scavenger
+hunt. If you think that, you're wrong. I was made to think of a
+/special/ and /unique/ way to do this, so I ran with it.
+
+Your message is not on this web page, but rather contained in a small
+bit of computer code I wrote and compiled for you to [[downloads][download]] (so
+/technically/ it /is/ on this web page, embeded in the [[sourcecode][source code at
+the bottom of the page]]).  
+
+So, please follow the [[instructions][instructions]] below to continue.  
+
+<<instructions>>
+* Instructions
+** [[file:./windows_logo_icon.png]] Windows 
+*** Download the [[./message-windows.zip][Windows (64-bit)]] package.
+**** Note, Windows (particularly Windows 10) might warn you about  downloaded the file since it isn't a commonly downloaded file. Just confirm that it is okay.
+*** Unzip the package
+**** You can use something like winzip (which should be on your computer already I think) or a similar program like winrar.
+*** Double click the message.exe to run the message!
+** [[file:./mac_logo_icon.png]] Mac
+*** Download the [[./message-mac.zip][OSX (64-bit)]] package.
+*** Unzip the package
+**** I think on macs you can just doubble click it and it will unzip the package
+*** Give the executable (message _mac) permissions to run
+**** Mac can be a pain in the ass sometimes. I am not an apple-authorized developer, so your computer might complain when you go to run the executable. Just confirm that it is okay when it downloads.
+**** Unfortunatley, It probably won't let you execute the code simply by double clicking the executable. So, you will have to give it permission to execute.
+**** I only know how to do this from the command line. So to simplity, I'm going to assume you've move the executable to your Desktop in the commands. 
+**** Once you have moved the executable to the desktop, open the Terminal and enter the following command:
+     #+BEGIN_SRC bash
+     chmod +x message_mac 
+     #+END_SRC
+*** Run the executable
+**** After the file has executable permissions, you might be able to run it by doubble clicking it, but you might as well execute it from your already open terminal with the following command:
+     #+BEGIN_SRC bash 
+     ./message_mac 
+     #+END_SRC
+*** Enjoy!
+** [[file:./linux_logo_icon.png]] Linux
+*** I like you.
+*** Download the [[./message-linux.tar.bz][Linux (64-bit)]] package.
+*** Un-tar the package
+**** Open a terminal and locate the downloaded package.
+**** *I am going to assume you understand the basics of linux files paths and how to move around in the terminal.
+**** untar the package with the following command:
+    #+BEGIN_SRC bash 
+    tar -jvxf message-linux.tar.bz 
+    #+END_SRC
+*** Give the executable permission to execute
+    #+BEGIN_SRC bash 
+    chmod +x message 
+    #+END_SRC
+*** Run the message!
+    #+BEGIN_SRC bash 
+    ./message 
+    #+END_SRC
+** [[file:./source_logo_icon.png]] Build from Source
+*** You probably know what the fuck you are doing.
+**** *Note I used [[http://www.sbcl.org/][Steel Bank Common Lisp]] to compile the executables (/sbcl/ in most repos).
+*** I also like you.
+
+
+<<downloads>>
+* Executable Downloads
+** [[file:./linux_logo_icon.png]] [[./message-linux.tar.bz][Linux (64-bit)]]
+** [[file:./windows_logo_icon.png]] [[./message-windows.zip][Windows (64-bit)]]
+** [[file:./mac_logo_icon.png]] [[./message-mac.zip][OSX (64-bit)]]
+** [[file:./source_logo_icon.png]] [[./message-source.tar.bz][Source Code]]
+
+<<sourcecode>>
+* Source Code 
+Here is the source code in case you are curious or want to validate
+that I'm not doing anything malicious ;). Nothin' Fancy, but it works
+:) .
+
+#+BEGIN_SRC common-lisp
+;; Used to build the executable
+(defun build-exe (exe-src)
+  (sb-ext:save-lisp-and-die exe-src :toplevel #'main :executable t))
+
+(defun main ()
+  (intro-message)
+  (decrypt-loading)
+  (sleep 1.7)
+  (secret-message))
+
+(defun intro-message ()
+  (format t "~a~%~%" (decode-message '(72 101 108 108 111 33 32 80 108 101 97 115 
+				       101 32 119 97 105 116 32 97 32 109 105 110 
+				       117 116 101 32 119 104 105 108 101 32 121 
+				       111 117 114 32 115 101 99 114 101 116 32 
+				       109 101 115 115 97 103 101 32 105 115 32 
+				       100 101 99 114 121 112 116 101 100 33)))
+  (sleep 2)
+  (format t "~a~%" (decode-message '(83 116 97 114 116 105 110 103 32 100 101 99 114 
+				     121 112 116 105 111 110 46 46 46)))
+  (sleep 1))
+
+(defun decrypt-loading ()
+  (let* ((messages '((#\Enq 89 111 117 32 107 110 111 119 44 32 105 116 32 114 101 97 108 108 121
+			    32 100 111 101 115 110 39 116 32 116 97 107 101 32 116 104 105 115 32 108 111
+			    110 103 32 116 111 32 100 101 99 114 121 112 116 46 46)
+		     (#\Newline 73 110 32 102 97 99 116 44 32 105 116 32 116 101 99 104 110 105 99
+		      97 108 108 121 32 105 115 110 39 116 32 39 100 101 99 114 121 112 116 105 110
+		      103 39 32 97 110 121 116 104 105 110 103 46)
+		     (#\Si 69 118 101 114 121 32 109 101 115 115 97 103 101 32 105 115 32 39 100
+		      101 99 114 121 112 116 101 100 39 32 119 104 101 110 32 100 105 115 112 108
+		      97 121 101 100 46)
+		     (#\Dc4 73 110 99 108 117 100 105 110 103 32 116 104 105 115 32 111 110 101 46
+		      46 46)
+		     (#\Nak 65 110 100 32 84 104 105 115 32 111 110 101 46 46 46)
+		     (#\Syn 65 110 100 32 84 104 105 115 32 111 110 101 46 46 46)
+		     (#\Etb 65 110 100 32 84 104 105 115 32 111 110 101 46 46 46)
+		     (#\Can 65 110 100 32 84 104 105 115 32 111 110 101 46 46 46)
+		     (#\Em 65 110 100 32 69 118 101 110 32 84 104 105 115 32 111 110 101 46 46 46)
+		     (#\Sub 73 32 116 104 105 110 107 32 73 39 118 101 32 109 97 100 101 32 109 121
+		      32 112 111 105 110 116 46)
+		     (#\Rs 65 108 115 111 32 115 111 114 114 121 32 102 111 114 32 116 104 101 32
+		      99 111 109 109 97 110 100 32 108 105 110 101 32 105 110 116 101 114 102 97 99
+		      101 46)
+		     (#\! 73 32 119 114 111 116 101 32 97 32 114 101 97 108 108 121 32 110 105 99
+		      101 32 71 85 73 32 117 115 105 110 103 32 81 116 53 32 97 110 100 32 80 121
+		      116 104 111 110 46)
+		     (#\$ 66 85 84 44 32 98 101 99 97 117 115 101 32 121 111 117 32 97 115 115 104
+		      111 108 101 115 32 117 115 101 32 101 118 101 114 121 32 111 116 104 101 114
+		      32 115 104 105 116 116 121 32 79 112 101 114 97 116 105 110 103 32 83 121 115
+		      116 101 109 32 107 110 111 119 110 32 116 111 32 109 97 110 46 46 46)
+		     (#\' 73 32 104 97 118 101 32 116 111 32 99 114 111 115 115 45 99 111 109 112
+		      105 108 101 32 116 104 105 115 32 97 99 114 111 115 115 32 87 105 110 100 111
+		      119 115 44 32 77 97 99 44 32 97 110 100 32 76 105 110 117 120 46)
+		     (#\* 65 110 100 32 105 116 32 116 117 114 110 115 32 111 117 116 32 115 101
+		      116 116 105 110 103 32 117 112 32 112 121 116 104 111 110 32 97 110 100 32 81
+		      116 53 32 111 110 32 97 108 108 32 116 104 111 115 101 32 112 108 97 116 102
+		      111 114 109 115 46 46 46)
+		     (#\- 73 115 32 97 32 103 105 97 110 116 32 112 97 105 110 32 105 110 32 116
+		      104 101 32 97 115 115 46)
+		     (#\0 46 46 46 69 115 112 101 99 105 97 108 108 121 32 111 110 32 87 105 110
+		      100 111 119 115 46 46 46 40 84 104 97 110 107 115 32 77 105 99 114 111 115
+		      111 102 116 41)
+		     (#\2 40 83 99 114 101 119 32 121 111 117 32 80 101 116 101 114 32 58 80 41)
+		     (#\7 83 111 44 32 73 32 100 101 99 105 100 101 100 32 116 111 32 115 99 114 97
+		      112 32 116 104 101 32 71 85 73 32 97 110 100 32 106 117 115 116 32 117 115
+		      101 32 109 121 32 112 121 116 104 111 110 32 99 111 100 101 46)
+		     (#\: 72 111 119 101 118 101 114 44 32 99 111 109 112 105 108 105 110 103 32
+		      105 116 32 119 105 116 104 32 116 104 101 32 114 105 103 104 116 32 118 101
+		      114 115 105 111 110 32 111 102 32 112 121 116 104 111 110 32 111 110 32 97
+		      108 108 32 116 104 101 32 112 108 97 116 102 111 114 109 115 46 46 46)
+		     (#\= 87 97 115 32 97 108 115 111 32 97 32 112 97 105 110 32 105 110 32 116 104
+		      101 32 97 115 115 46)
+		     (#\@ 65 105 110 39 116 32 110 111 98 111 100 121 32 103 111 116 32 116 105 109
+		      101 32 102 111 114 32 116 104 97 116 46)
+		     (#\C 83 111 44 32 73 32 104 97 100 32 116 111 32 114 101 45 119 114 105 116
+		      101 32 109 121 32 99 111 100 101 32 105 110 32 67 111 109 109 111 110 32 76
+		      105 115 112 46)
+		     (#\F 76 117 99 107 105 108 121 44 32 73 32 97 109 32 97 32 112 114 111 102 101
+		      115 115 105 111 110 97 108 32 76 105 115 112 32 80 114 111 103 114 97 109 109
+		      101 114 46)
+		     (#\I 66 117 116 32 115 116 105 108 108 46 46 46 32 87 84 70 46)
+		     (#\M 66 97 115 105 99 97 108 108 121 44 32 116 104 101 32 109 111 114 97 108
+		      32 111 102 32 116 104 105 115 32 115 116 111 114 121 32 105 115 58)
+		     (#\P 73 102 32 121 111 117 32 106 101 114 107 115 32 97 108 108 32 117 115 101
+		      100 32 76 105 110 117 120 44 32 73 32 119 111 117 108 100 110 39 116 32 111
+		      102 32 104 97 100 32 116 104 101 115 101 32 105 115 115 117 101 115 46)
+		     (#\S 83 111 32 115 111 114 114 121 32 105 102 32 121 111 117 32 119 111 117
+		      108 100 32 112 114 101 102 101 114 32 97 32 110 105 99 101 32 71 85 73 32 97
+		      112 112 32 105 110 115 116 101 97 100 32 111 102 32 97 32 116 104 105 115 32
+		      99 111 109 109 97 110 100 32 108 105 110 101 32 111 110 101 46)
+		     (#\V 66 117 116 32 105 116 39 115 32 114 101 97 108 108 121 32 121 111 117 114
+		      32 100 97 109 110 32 102 97 117 108 116 46 32 40 58 80 41)
+		     (#\Y 65 110 100 32 98 101 115 105 100 101 115 44 32 116 104 101 114 101 32 105
+		      115 32 110 111 116 104 105 110 103 32 119 114 111 110 103 32 119 105 116 104
+		      32 116 104 101 32 99 111 109 109 97 110 100 32 108 105 110 101 46)
+		     (#\\ 66 117 116 32 73 32 100 105 103 114 101 115 115 46)
+		     (#\_ 73 32 110 111 116 105 99 101 32 119 101 32 97 114 101 32 110 101 97 114
+		      108 121 32 97 116 32 49 48 48 37 46 46 46)
+		     (#\b 83 111 32 73 32 103 117 101 115 115 32 73 32 115 104 111 117 108 100 32
+		      115 116 111 112 32 114 97 110 116 105 110 103 32 97 110 100 32 115 104 111
+		      119 32 121 111 117 32 116 104 101 32 109 101 115 115 97 103 101 46 46 46)
+		     (#\d 70 105 110 101 32 58 41 46)))
+	 (decrypted-messages (decode-pair-list messages)))
+
+    (format t "~a~%" (decode-message '(68 101 99 114 121 112 116 105 110 103 32 77 101 115 115 97 103 101 58)))
+    
+    (dotimes (i 101) 
+      (cond ((equal i (caar decrypted-messages))
+	     (format t "~d% ~a   ~a ~%" i (decode-message '(67 111 109 112 108 101 116 101 46))
+		     (cdar decrypted-messages))
+	     (setf decrypted-messages (cdr decrypted-messages)))
+	    (t
+	     (format t "~d% ~a~%" i  (decode-message '(67 111 109 112 108 101 116 101 46)))))
+      (sleep 1))))
+
+(defun secret-message ()
+  (format t "~%~a~%~%~%- ~a~%~%" 
+	  (decode-message '(83 111 44 32 112 117 116 116 105 110 103 32 97 108 108 32 106 111 107 101 115
+			    32 97 110 100 32 110 101 114 100 121 45 110 101 115 115 32 97 115 105 100 101
+			    44 32 73 32 100 111 32 104 97 118 101 32 97 110 32 105 109 112 111 114 116 97
+			    110 116 32 113 117 101 115 116 105 111 110 32 116 111 32 97 115 107 46 32 65
+			    115 32 121 111 117 32 97 114 101 32 112 114 111 98 97 98 108 121 32 97 119 97
+			    114 101 44 32 82 101 98 101 99 99 97 32 97 110 100 32 73 32 97 114 101 32 102
+			    105 110 97 108 108 121 32 103 101 116 116 105 110 103 32 109 97 114 114 105
+			    101 100 32 105 110 32 83 101 112 116 101 109 98 101 114 46 32 84 104 105 115
+			    32 105 115 32 119 105 108 108 32 98 101 32 97 32 118 101 114 121 32 115 112
+			    101 99 105 97 108 32 42 68 65 89 42 32 105 110 32 109 121 32 108 105 102 101
+			    44 32 97 110 100 32 97 115 32 97 32 118 101 114 121 32 115 112 101 99 105 97
+			    108 32 42 80 69 82 83 79 78 42 32 105 110 32 109 121 32 108 105 102 101 44 32
+			    73 32 119 111 117 108 100 32 108 105 107 101 32 116 111 32 97 115 107 58 32 32
+			    87 105 108 108 32 121 111 117 32 98 101 32 111 110 101 32 111 102 32 109 121
+			    32 103 114 111 111 109 115 109 101 110 63))
+	  (decode-message '(82 121 97 110))))
+
+(defun encode-message (message)
+  (mapcar #'char-code (concatenate 'list message)))
+
+(defun decode-message (num-list)
+  (map 'string #'code-char num-list))
+
+(defun encode-pair-list (pair-list)
+  (mapcar (lambda (pair) (cons (code-char (car pair)) (encode-message (cdr pair)))) pair-list))
+
+;;(load "decryptMessage.cl")
+
+
+(defun decode-pair-list (pair-list)
+ (mapcar (lambda (pair) (cons (char-code (car pair)) (decode-message (cdr pair)))) pair-list))
+#+END_SRC
