@@ -1,4 +1,4 @@
-![Logo](./images/icon.png)
+ -> ![Logo](./images/icon.png) <-
 
 Over the last few months Rebecca (my Fiancee) and I have continued making progress on all the little tasks that we have to complete before our wedding. One of these tasks is asking our intended bridesmaids/groomsmen to be in the wedding.
 
@@ -54,9 +54,8 @@ Executable(s)
 
 When the intended groomsmen ran the compiled code (source code posted below), it showed them that it was "decrypting" their message, and printed the percent complete. After about 20% or so, I confessed that there was no "decrypting" and that each message is decoded when printed. I then proceeded to rant in these "decrypting" messages about how I originally wrote a nice GUI python app, but it was a pain to cross compile, and how I eventually just scrapped it and wrote it in LISP. I also mentioned that if they all ran Linux, it wouldn't of been an issue. When it finally reached 100%, I decided to finally give them the message.
 
-Source Code for the executable I wrote containing the message. Nothing fancy, but everything hidden.
+[decryptMessage.cl]("Source Code") for the executable I wrote containing the message. Nothing fancy, but everything hidden.
 
-[./decryptMessage.cl]("decryptMessage.cl")
 
 ## Message
 
