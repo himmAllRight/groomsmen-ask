@@ -1,4 +1,5 @@
 ![Logo](./images/icon.png)
+
 Over the last few months Rebecca (my Fiancee) and I have continued making progress on all the little tasks that we have to complete before our wedding. One of these tasks is asking our intended bridesmaids/groomsmen to be in the wedding.
 
 Rebecca approached this by asking each of the girls in a way that was somewhat unique to each person, over time. Even though each person was asked differently, all the methods were executed in a very "Rebecca-like" manner.
@@ -55,7 +56,7 @@ When the intended groomsmen ran the compiled code (source code posted below), it
 
 Source Code for the executable I wrote containing the message. Nothing fancy, but everything hidden.
 
--- link to src --
+[./decryptMessage.cl]("decryptMessage.cl")
 
 ## Message
 
