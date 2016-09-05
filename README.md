@@ -1,6 +1,6 @@
  <p align="center">
  ![Logo](./images/icon.png)
-</p>
+
 Over the last few months Rebecca (my Fiancee) and I have continued making progress on all the little tasks that we have to complete before our wedding. One of these tasks is asking our intended bridesmaids/groomsmen to be in the wedding.
 
 Rebecca approached this by asking each of the girls in a way that was somewhat unique to each person, over time. Even though each person was asked differently, all the methods were executed in a very "Rebecca-like" manner.
@@ -73,3 +73,4 @@ After putting up with my ranting, I finally posted the message asking the guys t
 About 2 days after we mailed out the letters, all of then intended groomsmen had messaged me back, confirming that they would be my groomsmen. I also think they enjoyed my methods of asking.
 
 I guess I was successful in asking everyone in a very "Ryan-like" fashion.
+</p>
