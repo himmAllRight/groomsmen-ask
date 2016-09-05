@@ -1,3 +1,4 @@
+![Logo](./images/icon.png)
 Over the last few months Rebecca (my Fiancee) and I have continued making progress on all the little tasks that we have to complete before our wedding. One of these tasks is asking our intended bridesmaids/groomsmen to be in the wedding.
 
 Rebecca approached this by asking each of the girls in a way that was somewhat unique to each person, over time. Even though each person was asked differently, all the methods were executed in a very "Rebecca-like" manner.
@@ -17,19 +18,19 @@ At that moment, I started to figure out how I could make it work. The results of
 
 I first had to find a way to give the intended groomsmen a link to get any code that I wrote. So, Rebecca and I designed the tri-fold letter pictured below (Sorry for the photo quality).
 
-![The front of the letter](../../images/posts/how-i-asked-my-groomsmen/ask-message1.jpg)
+![The front of the letter](./images/note1.jpg)
 
 *Figure 1: The Front of Letter*
 
 The front of the envelope had a simple black boarder and said "She said that I had to make it official."
 
-![The first flap of the letter](../../images/posts/how-i-asked-my-groomsmen/ask-message2.jpg)
+![The first flap of the letter](./images/note2.jpg)
 
 *Figure 2: The First Flap of the Letter*
 
 When the reader flipped up that flap, another message read "So we're doing this my way".
 
-![The QR code posted inside the letter](../../images/posts/how-i-asked-my-groomsmen/ask-message-qr.jpg)
+![The QR code posted inside the letter](./images/qr-code.jpg)
 
 *Figure 3: The QR Code posted on the Inside of the Letter*
 
@@ -38,7 +39,7 @@ Lastly, when the reader folded that flap down, they got a taste of what "my way"
 When the reader scanned the QR code, it opened up a list of instructions on their phone that said:
 
 > 1. Find your computer.
-> 2. Go to [http://ryan.himmelwright.net/message/]("http://ryan.himmelwright.net/message/") and follow the instructions.
+> 2. Go to [http://ryan.himmelwright.net/message/]("http://ryan.himmelwright.net/message/") and follow the instructions. (NO LONGER ACTIVE)
 > 3. Text Me
 
 ## Website
